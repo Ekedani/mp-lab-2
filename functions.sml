@@ -20,7 +20,11 @@ fun number_in_month (dates : (int*int*int) list, month_num : int) =
     else number_in_month(tl dates, month_num)
 
 fun number_in_months (dates : (int*int*int) list, month_nums : int list) =
-    true
+    if null dates orelse null month_nums
+    then 0
+    else
+
+    number_in_month(dates, hd month_nums) + number_in_months(dates, tl month_nums)
 
 fun dates_in_month (dates : (int*int*int) list, month_num : int) =
     true
