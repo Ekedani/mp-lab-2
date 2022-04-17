@@ -35,8 +35,11 @@ fun dates_in_month (dates : (int*int*int) list, month_num : int) =
     else dates_in_month(tl dates, month_num)
 
 fun dates_in_months (dates : (int*int*int) list, month_nums : int list) =
-    true
+    if null dates orelse null month_nums
+    then []
+    else
+
+    dates_in_month(dates, hd month_nums) @ dates_in_months(dates, tl month_nums)
 
 
 val test_1 = is_older((2019, 5, 5), (2019, 5, 6))
-val test_4 = dates_in_month([(2019, 5, 5), (2020, 5, 6), (2021, 5, 6), (2022, 6, 6)], 5)
