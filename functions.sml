@@ -42,4 +42,9 @@ fun dates_in_months (dates : (int*int*int) list, month_nums : int list) =
     dates_in_month(dates, hd month_nums) @ dates_in_months(dates, tl month_nums)
 
 
+fun get_nth(words: string list, n : int) = 
+    if n = 1
+    then hd words
+    else get_nth(tl words, n - 1)
+
 val test_1 = is_older((2019, 5, 5), (2019, 5, 6))
