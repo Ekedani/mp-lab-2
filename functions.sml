@@ -41,26 +41,36 @@ fun dates_in_months (dates : (int*int*int) list, month_nums : int list) =
 
     dates_in_month(dates, hd month_nums) @ dates_in_months(dates, tl month_nums)
 
-
 fun get_nth(words: string list, n : int) = 
     if n = 1
     then hd words
     else get_nth(tl words, n - 1)
 
 fun date_to_string(date : (int*int*int)) =
-    let  
-    val months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    in
-    get_nth(months, #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
+    let val months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    in get_nth(months, #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
     end
 
-fun number_before_reaching_sum() =
-    true
+fun number_before_reaching_sum(sum : int, numbers: int list) =
+    if null numbers
+    then 0
+    else 1
 
 fun what_month() =
     true
 
 fun month_range() =
     true
+
+fun oldest(dates : (int*int*int) list) = 
+    if null dates
+    then NONE
+    else
+
+    let tl_oldest = oldest(tl dates)
+    in if isSome tl_oldest andalso is_older(tl_oldest, hd dates)
+    then tl_oldest
+    else SOME hd_dates
+    end
 
 val test_1 = is_older((2019, 5, 5), (2019, 5, 6))
