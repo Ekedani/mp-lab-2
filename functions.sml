@@ -54,10 +54,17 @@ fun date_to_string(date : (int*int*int)) =
 fun number_before_reaching_sum(sum : int, numbers: int list) =
     if null numbers
     then 0
-    else 1
+    else
 
-fun what_month() =
-    true
+    if sum <= hd numbers
+    then 0
+    else 1 + number_before_reaching_sum((sum - (hd numbers)), (tl numbers))
+
+
+fun what_month(day : int) =
+    let val days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    in number_before_reaching_sum(days_in_months, day)
+    end
 
 fun month_range() =
     true
@@ -74,4 +81,4 @@ fun oldest(dates : (int*int*int) list) =
     end
 
 val test_1 = is_older((2019, 5, 5), (2019, 5, 6))
-val oldest_test = oldest([(2019, 5, 5), (2019, 5, 6), (2017, 5, 6), (2003, 5, 6), (2019, 5, 6)])
+val test_2 = number_before_reaching_sum(30, [6, 6, 6, 6, 6, 7, 1, 1, 1, 1, 1, 1])
