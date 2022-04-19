@@ -67,10 +67,11 @@ fun oldest(dates : (int*int*int) list) =
     then NONE
     else
 
-    let tl_oldest = oldest(tl dates)
-    in if isSome tl_oldest andalso is_older(tl_oldest, hd dates)
+    let val tl_oldest = oldest(tl dates)
+    in if isSome tl_oldest andalso is_older(valOf tl_oldest, hd dates)
     then tl_oldest
-    else SOME hd_dates
+    else SOME (hd dates)
     end
 
 val test_1 = is_older((2019, 5, 5), (2019, 5, 6))
+val oldest_test = oldest([(2019, 5, 5), (2019, 5, 6), (2017, 5, 6), (2003, 5, 6), (2019, 5, 6)])
