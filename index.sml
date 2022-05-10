@@ -52,7 +52,19 @@ fun dates_in_months_test() =
     true
 
 fun get_nth_test() = 
-    true
+    if get_nth(["A", "B", "C", "D"], 2) <> "B"
+    then raise Fail "Test failed at 1 case (get_nth)"
+    else
+
+    if get_nth(["A", "B", "C", "D"], 4) <> "D"
+    then raise Fail "Test failed at 2 case (get_nth)"
+    else
+
+    if get_nth(["A", "B", "C", "D"], 1) <> "A"
+    then raise Fail "Test failed at 3 case (get_nth)"
+    else
+
+    print("Test passed (get_nth)");
 
 fun date_to_string_test() =
     if date_to_string((2022,2,28)) <> "February 28, 2022"
