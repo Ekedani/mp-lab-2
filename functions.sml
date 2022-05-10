@@ -81,6 +81,3 @@ fun oldest(dates : (int*int*int) list) =
     then tl_oldest
     else SOME (hd dates)
     end
-
-val test_1 = is_older((2019, 5, 5), (2019, 5, 6))
-val test_2 = number_before_reaching_sum(30, [6, 6, 6, 6, 6, 7, 1, 1, 1, 1, 1, 1])
