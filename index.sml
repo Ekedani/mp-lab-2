@@ -16,10 +16,34 @@ fun is_older_test() =
     print("Test passed (is_older)");
 
 fun number_in_month_test() =
+    if number_in_month([(2022,2,28), (2022,2,28), (2022,6,28)], 2) <> 2
+    then raise Fail "Test failed at 1 case (number_in_month)"
+    else
+
+    if number_in_month([(2022,2,28), (2022,2,28), (2022,2,28)], 5) <> 0
+    then raise Fail "Test failed at 2 case (number_in_month)"
+    else
+
+    if number_in_month([(2022,3,28), (2022,2,28), (2022,3,28)], 3) <> 2
+    then raise Fail "Test failed at 3 case (number_in_month)"
+    else
+
     print("Test passed (number_in_month)");
 
 fun number_in_months_test() =
-    true
+    if number_in_months([(2022,2,28), (2022,3,28), (2022,6,28)], [2, 3]) <> 2
+    then raise Fail "Test failed at 1 case (numbers_in_month)"
+    else
+
+    if number_in_months([(2022,2,28), (2022,3,28), (2022,6,28)], [7, 8, 9]) <> 0
+    then raise Fail "Test failed at 2 case (numbers_in_month)"
+    else
+
+    if number_in_months([(2022,2,28), (2022,3,28), (2022,6,28)], [3, 6]) <> 2
+    then raise Fail "Test failed at 3 case (numbers_in_month)"
+    else
+
+    print("Test passed (numbers_in_month)");
 
 fun dates_in_month_test() = 
     true
@@ -57,4 +81,14 @@ fun month_range_test() =
 fun oldest_test() = 
     true;
 
-is_older_test()
+is_older_test();
+number_in_month_test();
+number_in_months_test();
+dates_in_month_test();
+dates_in_months_test();
+get_nth_test();
+date_to_string_test();
+number_before_reaching_sum_test();
+what_month_test();
+month_range_test();
+oldest_test();
