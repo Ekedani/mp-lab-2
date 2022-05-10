@@ -1,4 +1,6 @@
-fun is_older (date_first : int*int*int, date_second : int*int*int) =
+type date = int*int*int;
+
+fun is_older (date_first : date, date_second : date) =
     if (#1 date_first) <> (#1 date_second)
     then (#1 date_first) < (#1 date_second)
     else
@@ -9,7 +11,7 @@ fun is_older (date_first : int*int*int, date_second : int*int*int) =
 
     (#3 date_first) < (#3 date_second)
 
-fun number_in_month (dates : (int*int*int) list, month_num : int) =
+fun number_in_month (dates : date list, month_num : int) =
     if null dates
     then 0
     else
@@ -18,14 +20,14 @@ fun number_in_month (dates : (int*int*int) list, month_num : int) =
     then 1 + number_in_month(tl dates, month_num)
     else number_in_month(tl dates, month_num)
 
-fun number_in_months (dates : (int*int*int) list, month_nums : int list) =
+fun number_in_months (dates : date list, month_nums : int list) =
     if null dates orelse null month_nums
     then 0
     else
 
     number_in_month(dates, hd month_nums) + number_in_months(dates, tl month_nums)
 
-fun dates_in_month (dates : (int*int*int) list, month_num : int) =
+fun dates_in_month (dates : date list, month_num : int) =
     if null dates
     then []
     else
@@ -34,7 +36,7 @@ fun dates_in_month (dates : (int*int*int) list, month_num : int) =
     then (hd dates) :: dates_in_month(tl dates, month_num)
     else dates_in_month(tl dates, month_num)
 
-fun dates_in_months (dates : (int*int*int) list, month_nums : int list) =
+fun dates_in_months (dates : date list, month_nums : int list) =
     if null dates orelse null month_nums
     then []
     else
@@ -46,9 +48,9 @@ fun get_nth(words: string list, n : int) =
     then hd words
     else get_nth(tl words, n - 1)
 
-fun date_to_string(date : (int*int*int)) =
+fun date_to_string(input_date : date) =
     let val months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    in get_nth(months, #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
+    in get_nth(months, #2 input_date) ^ " " ^ Int.toString(#3 input_date) ^ ", " ^ Int.toString(#1 input_date)
     end
 
 fun number_before_reaching_sum(sum : int, numbers: int list) =
@@ -71,7 +73,7 @@ fun month_range(day1 : int, day2: int) =
     else what_month(day1) :: month_range(day1 + 1, day2)
     
 
-fun oldest(dates : (int*int*int) list) = 
+fun oldest(dates : date list) = 
     if null dates
     then NONE
     else
