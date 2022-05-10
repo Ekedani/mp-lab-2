@@ -85,10 +85,34 @@ fun number_before_reaching_sum_test() =
     true
 
 fun what_month_test() =
-    true
+    if what_month(32) <> 2
+    then raise Fail "Test failed at 1 case (what_month)"
+    else
+
+    if what_month(1) <> 1
+    then raise Fail "Test failed at 2 case (what_month)"
+    else
+
+    if what_month(70) <> 3
+    then raise Fail "Test failed at 3 case (what_month)"
+    else
+
+    print("Test passed (what_month)");
 
 fun month_range_test() = 
-    true
+    if month_range(30, 32) <> [1, 1, 2]
+    then raise Fail "Test failed at 1 case (month_range)"
+    else
+
+    if month_range(32, 30) <> []
+    then raise Fail "Test failed at 2 case (month_range)"
+    else
+
+    if month_range(1, 2) <> [1, 1]
+    then raise Fail "Test failed at 3 case (month_range)"
+    else
+
+    print("Test passed (month_range)");
 
 fun oldest_test() = 
     true;
