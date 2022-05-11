@@ -46,10 +46,34 @@ fun number_in_months_test() =
     print("Test passed (numbers_in_month)");
 
 fun dates_in_month_test() = 
-    true
+    if dates_in_month([(2022,2,28), (2022,2,28), (2022,6,28)], 2) <> [(2022,2,28), (2022,2,28)]
+    then raise Fail "Test failed at 1 case (dates_in_month)"
+    else
+
+    if dates_in_month([(2022,2,28), (2022,2,28), (2022,6,28)], 7) <> []
+    then raise Fail "Test failed at 2 case (dates_in_month)"
+    else
+
+    if dates_in_month([(2023,7,28), (2027,9,8), (2022,7,28)], 7) <> [(2023,7,28), (2022,7,28)]
+    then raise Fail "Test failed at 3 case (dates_in_month)"
+    else
+
+    print("Test passed (dates_in_month)");
 
 fun dates_in_months_test() =
-    true
+    if dates_in_months([(2022,2,28), (2022,2,28), (2022,6,28), (2022,7,28)], [2, 6]) <> [(2022,2,28), (2022,2,28), (2022,6,28)]
+    then raise Fail "Test failed at 1 case (dates_in_month)"
+    else
+
+    if dates_in_months([(2022,2,28), (2022,2,28), (2022,6,28), (2022,7,28)], []) <> []
+    then raise Fail "Test failed at 2 case (dates_in_month)"
+    else
+
+    if dates_in_months([(2023,7,28), (2027,9,8), (2022,7,28)], [7]) <> [(2023,7,28), (2022,7,28)]
+    then raise Fail "Test failed at 3 case (dates_in_month)"
+    else
+
+    print("Test passed (dates_in_month)");
 
 fun get_nth_test() = 
     if get_nth(["A", "B", "C", "D"], 2) <> "B"
