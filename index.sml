@@ -106,7 +106,19 @@ fun date_to_string_test() =
     print("Test passed (date_to_string)");
 
 fun number_before_reaching_sum_test() = 
-    true
+    if number_before_reaching_sum(10, [1, 3, 9, 11, 22, 33]) <> 2
+    then raise Fail "Test failed at 1 case (number_before_reaching_sum)"
+    else
+
+    if number_before_reaching_sum(1, [1, 3, 9, 11, 22, 33]) <> 0
+    then raise Fail "Test failed at 2 case (number_before_reaching_sum)"
+    else
+
+    if number_before_reaching_sum(14, [1, 3, 9, 11, 22, 33]) <> 3
+    then raise Fail "Test failed at 3 case (number_before_reaching_sum)"
+    else
+
+    print("Test passed (number_before_reaching_sum)");
 
 fun what_month_test() =
     if what_month(32) <> 2
@@ -139,7 +151,19 @@ fun month_range_test() =
     print("Test passed (month_range)");
 
 fun oldest_test() = 
-    true;
+    if oldest([(2021,3,7), (2024,10,8), (2021,6,2), (2011,3,7)]) <> SOME (2011,3,7)
+    then raise Fail "Test failed at 1 case (oldest)"
+    else
+
+    if oldest([]) <> NONE
+    then raise Fail "Test failed at 2 case (oldest)"
+    else
+
+    if oldest([(1024,1,8), (2074,12,8), (2224,4,2), (2020,1,1)]) <> SOME (1024,1,8)
+    then raise Fail "Test failed at 3 case (oldest)"
+    else
+
+    print("Test passed (oldest)");
 
 is_older_test();
 number_in_month_test();
